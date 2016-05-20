@@ -19,6 +19,25 @@ public class Cliente {
 	@Column(name="endereco")
 	private String endereco;
 	
+	public Cliente() {
+		
+	}
+	
+	public Cliente(String nome, String telefone, String endereco){
+		super();
+		this.nome = nome;
+		this.telefone = telefone;
+		this.endereco = endereco;
+	}
+	
+	public Long getId(){
+		return id;
+	}
+	
+	public void setId(Long id){
+		this.id = id;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -37,5 +56,7 @@ public class Cliente {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
+	
+	
 
 }
