@@ -2,12 +2,17 @@ package br.rhoden.comum;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
 
 @Entity
 @Table(name = "Cliente")
+
 public class Cliente {
 	@Id
 	@GeneratedValue
@@ -18,7 +23,18 @@ public class Cliente {
 	private String telefone;
 	@Column(name="endereco")
 	private String endereco;
+	@OneToMany(mappedBy = "id", targetEntity = Compras.class, fetch = FetchType.LAZY)
+	private String idcompras;
 	
+	
+	public String getIdcompras() {
+		return idcompras;
+	}
+
+	public void setIdcompras(String idcompras) {
+		this.idcompras = idcompras;
+	}
+
 	public Cliente() {
 		
 	}
@@ -56,7 +72,4 @@ public class Cliente {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-	
-	
-
 }
